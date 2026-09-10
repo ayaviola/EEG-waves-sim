@@ -6,8 +6,8 @@ This program is a very simple demonstration to show you how unstructured data be
 decoded and readable in order for us to pull out conclusive results via FFT. 
 '''
 
-frequency_samples = 500 
-time = np.linspace(0, 4, 4*frequency_samples, endpoint=False)
+frq_sample_rate = 500 
+time = np.linspace(0, 4, 4*frq_sample_rate, endpoint=False)
 
 def sine_wave_eq(amplitude, freq, t):
     return amplitude * np.sin(2 * np.pi * freq * t)
@@ -27,7 +27,7 @@ T = 1/f
 amp = max value - min value / 2
 '''
 fft_values = np.fft.rfft(eeg_signal)
-fft_frqs = np.fft.rfftfreq(len(time), 1/frequency_samples)
+fft_frqs = np.fft.rfftfreq(len(time), 1/frq_sample_rate)
 amplitudes = np.abs(fft_values) / len(time) * 2
 
 plt.figure(figsize=(10, 6))
